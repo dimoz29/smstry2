@@ -54,7 +54,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src="header-image.png" alt="Header" className="App-logo" />
+        <img src="https://www.telekom.com/resource/blob/1018636/fa97fe8e0f3ba053887de9bd4efdd7e9/dl-t-logo-0009-en-data.jpg" alt="Header" className="App-logo" />
         <h1>Payment dApp</h1>
         {accounts.length === 0 ? (
           <button onClick={initializeWeb3}>Connect Wallet</button>
