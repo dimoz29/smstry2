@@ -1,25 +1,30 @@
-/* Reset some default styles */
+/* Set a gray background for the whole page */
 body {
   margin: 0;
   padding: 0;
+  background-color: #f1f1f1; /* Light gray background */
 }
 
 /* Add a background color and some spacing to the header */
 .App-header {
-  background-color: #FF00FF;
+  background-color: #FF00FF; /* Magenta header background */
   padding: 20px;
   text-align: center;
+  position: relative; /* Allow positioning the image inside the header */
 }
 
 /* Customize the header image */
 .App-logo {
   height: 80px;
   pointer-events: none;
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
 
 /* Style the Connect Wallet button */
 button {
-  background-color: #D3D3D3;
+  background-color: #D3D3D3; /* Light gray button background */
   color: white;
   border: none;
   padding: 10px 20px;
@@ -29,7 +34,7 @@ button {
 }
 
 button:hover {
-  background-color: #3498db;
+  background-color: #3498db; /* Blue button background on hover */
 }
 
 /* Style the recipient list */
