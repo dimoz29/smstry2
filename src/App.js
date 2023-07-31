@@ -53,20 +53,27 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Payment dApp</h1>
-      {accounts.length === 0 ? (
-        <button onClick={initializeWeb3}>Connect Wallet</button>
-      ) : (
-        <>
-          <button onClick={sendPayment}>Send Payment</button>
-          <h2>Recipients:</h2>
-          <ul>
-            {recipients.map((recipient, index) => (
-              <li key={index}>{recipient}</li>
-            ))}
-          </ul>
-        </>
-      )}
+      <header className="App-header">
+        <img src="header-image.png" alt="Header" className="App-logo" />
+        <h1>Payment dApp</h1>
+        {accounts.length === 0 ? (
+          <button onClick={initializeWeb3}>Connect Wallet</button>
+        ) : (
+          <>
+            <button onClick={sendPayment}>Send Payment</button>
+            {recipients.length > 0 && (
+              <div className="recipient-list">
+                <h2>Recipients:</h2>
+                {recipients.map((recipient, index) => (
+                  <div key={index} className="recipient-card">
+                    <p>{recipient}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+          </>
+        )}
+      </header>
     </div>
   );
 }
