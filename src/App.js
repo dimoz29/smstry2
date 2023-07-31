@@ -55,7 +55,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src="https://i.imgur.com/J2nPRoN.png" alt="Header" className="App-logo" />
-         <link rel="icon" href="/favicon.ico" sizes="32x32">
+
         <h1>Payment dApp</h1>
         {accounts.length === 0 ? (
           <button onClick={initializeWeb3}>Connect Wallet</button>
