@@ -54,7 +54,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src="https://github.com/dimoz29/smstry2/blob/main/static/media/logo.f7879e226ed5822062e2.png" alt="Header" className="App-logo" />
+        <img src="/media/logo.f7879e226ed5822062e2.png" alt="Header" className="App-logo" />
         <h1>Payment dApp</h1>
         {accounts.length === 0 ? (
           <button onClick={initializeWeb3}>Connect Wallet</button>
