@@ -1,5 +1,5 @@
 .App {
-  text-align: right;
+  text-align: center;
 }
 
 /* Customize the following styles based on your color scheme and font choices */
@@ -11,12 +11,12 @@
   align-items: center;
   justify-content: center;
   font-family: 'Arial', sans-serif;
-  font-size: 240px;
+  font-size: 24px;
   color: white;
 }
 
 .App-logo {
-  height: 800px;
+  height: 80px;
   pointer-events: none;
   /* Add additional styles like box-shadow, border-radius, etc., if desired */
 }
