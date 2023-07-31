@@ -7,7 +7,7 @@ body {
 
 /* Add a background color and some spacing to the header */
 .App-header {
-  background-color: #FF00FF; /* Magenta header background */
+  background-color: #f1f1f1; /* Magenta header background */
   padding: 20px;
   text-align: center;
   position: relative; /* Allow positioning the image inside the header */
