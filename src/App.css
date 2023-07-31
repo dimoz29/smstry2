@@ -2,12 +2,12 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #36454F; /* Light gray background */
+  background-color: #36454F; /* Charcoal gray background */
 }
 
 /* Header styles */
 .App-header {
-  background-color: #f1f1f1; /* Magenta header background */
+  background-color: #36454F; /* Magenta header background */
   padding: 20px;
   text-align: center;
   position: relative; /* Allow positioning the image inside the header */
@@ -43,7 +43,7 @@ button:hover {
 }
 
 .recipient-card {
-  background-color: #36454F;
+  background-color: #36454F; /* Charcoal gray background */
   border-radius: 8px;
   padding: 10px;
   margin: 10px 0;
