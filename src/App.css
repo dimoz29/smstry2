@@ -1,34 +1,52 @@
-.App {
+/* Reset some default styles */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Add a background color and some spacing to the header */
+.App-header {
+  background-color: #3498db;
+  padding: 20px;
   text-align: center;
 }
 
-/* Customize the following styles based on your color scheme and font choices */
-.App-header {
-  background-color: #3498db;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Arial', sans-serif;
-  font-size: 24px;
-  color: white;
-}
-
+/* Customize the header image */
 .App-logo {
   height: 80px;
   pointer-events: none;
-  /* Add additional styles like box-shadow, border-radius, etc., if desired */
 }
 
-.App-link {
-  color: #61dafb;
-  text-decoration: none;
-  transition: color 0.2s ease;
+/* Style the Connect Wallet button */
+button {
+  background-color: #45aaf2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-.App-link:hover {
-  color: #45aaf2;
+button:hover {
+  background-color: #3498db;
 }
 
-/* Add any additional styles for buttons, form elements, etc., as needed */
+/* Style the recipient list */
+.recipient-list {
+  margin-top: 30px;
+}
+
+.recipient-card {
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Add some spacing and style the Recipients heading */
+.recipient-list h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
