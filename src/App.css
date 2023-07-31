@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   /*background-color: #36454F; /* Charcoal gray background */
-  background-image: radial-gradient(circle, #ffcc00, #ff6600);
+  background-image: radial-gradient(circle, #E10075, #36454F);
 }
 
 /* Header styles */
