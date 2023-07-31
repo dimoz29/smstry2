@@ -6,7 +6,7 @@ body {
 
 /* Add a background color and some spacing to the header */
 .App-header {
-  background-color: #3498db;
+  background-color: #FF00FF;
   padding: 20px;
   text-align: center;
 }
@@ -19,7 +19,7 @@ body {
 
 /* Style the Connect Wallet button */
 button {
-  background-color: #45aaf2;
+  background-color: #D3D3D3;
   color: white;
   border: none;
   padding: 10px 20px;
