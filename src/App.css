@@ -17,8 +17,8 @@ body {
 
 /* Container for the header logo */
 .logo-container {
-  max-width: 20%;
-  text-align: left;
+  max-width: 100%;
+  text-align: center;
 }
 
 /* Header image styles */
@@ -26,7 +26,6 @@ body {
   height: auto;
   max-width: 100%;
   display: block;
-  width: 100%;
 }
 
 /* Container for the Ethereum logo */
@@ -85,4 +84,22 @@ button:hover {
 /* Add some space above the button */
 .button-container {
   margin-top: 1rem;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 600px) {
+  .logo-container {
+    max-width: 60%;
+  }
+
+  .eth-logo-container {
+    top: 1rem;
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  .App-logo {
+    max-width: 100%;
+    height: auto;
+  }
 }
