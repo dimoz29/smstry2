@@ -27,6 +27,7 @@ body {
   height: auto;
   max-width: 100%;
   display: block; /* Ensures the image respects the parent container's width */
+}
 
 /* Button styles */
 button {
