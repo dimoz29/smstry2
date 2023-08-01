@@ -14,15 +14,19 @@ body {
   position: relative; /* Allow positioning the image inside the header */
 }
 
+
+
+/* Container for the header logo */
+.logo-container {
+  max-width: 100%;
+  text-align: left; /* Adjust alignment as needed */
+}
+
 /* Header image styles */
 .App-logo {
   height: auto;
-  max-width: auto;
-  pointer-events: none;
-  position: absolute;
-  top: 10px;
-  left: 10px;
-}
+  max-width: 100%;
+  display: block; /* Ensures the image respects the parent container's width */
 
 /* Button styles */
 button {
@@ -68,3 +72,5 @@ button:hover {
 .button-container {
   margin-top: 10px;
 }
+
+
