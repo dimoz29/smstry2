@@ -18,7 +18,7 @@ body {
 
 /* Container for the header logo */
 .logo-container {
-  max-width: 100%;
+  max-width: 50px; /* Adjust this width as needed */
   text-align: left; /* Adjust alignment as needed */
 }
 
@@ -26,7 +26,8 @@ body {
 .App-logo {
   height: auto;
   max-width: 100%;
-  display: block; /* Ensures the image respects the parent container's width */
+  display: block;
+  width: 100%; /* Ensure the image takes up the full width of the container */
 }
 
 /* Button styles */
