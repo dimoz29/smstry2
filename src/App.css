@@ -44,6 +44,13 @@ body {
   cursor: pointer;
 }
 
+/* Blockchain header styles */
+.blockchain-header {
+  text-align: center;
+  flex-grow: 1; /* Takes up remaining space */
+  margin: 0 1rem; /* Add some space on the sides */
+}
+
 /* Button styles */
 button {
   background-color: #d3d3d3;
