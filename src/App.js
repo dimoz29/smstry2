@@ -11,8 +11,7 @@ function App() {
   const [contract, setContract] = useState(null);
   const [recipients, setRecipients] = useState([]);
   const [message, setMessage] = useState(''); // New state for message
-  const [mobileNumber, setMobileNumber] = useState('');  // New state for mobile number
-
+  const [mobileNumber, setMobileNumber] = useState(''); // New state for mobile number
 
   useEffect(() => {
     initializeWeb3();
@@ -43,12 +42,28 @@ function App() {
     }
 
     try {
-      await contract.methods.sendPayment().send({
+      await contract.methods.sendPayment(message).send({
         from: accounts[0],
         value: web3.utils.toWei('0.2', 'ether'),
       });
 
+      // Add this code
+      const response = await fetch('http://localhost:4000/send-sms', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          to: mobileNumber,
+          text: 'A text message sent using the Vonage SMS API'
+        })
+      });
+
+      const data = await response.json();
+      console.log(data.message); // logs 'Message sent successfully'
+
       setMessage(''); // Reset message after sending
+      setMobileNumber(''); // Reset mobile number after sending
 
       const recipients = await contract.methods.getUsers().call();
       setRecipients(recipients);
@@ -57,7 +72,7 @@ function App() {
     }
   };
 
-return (
+  return (
     <div className="App">
       <header className="App-header">
         <img src="/tdilog.png" alt="Header" className="App-logo" />
@@ -68,18 +83,16 @@ return (
           <>
             <div className="input-container">
               <label>
-                Enter Message:
+                Enter message:
                 <input
                   type="text"
                   value={message}
                   onChange={e => setMessage(e.target.value)}
                   placeholder="Enter your message here"
-                />  
+                />
               </label>
-            </div>
-              <div>     
-               <label>
-                Enter Mobile Number    
+              <label>
+                Enter mobile number:
                 <input
                   type="text" 
                   value={mobileNumber} 
@@ -107,5 +120,3 @@ return (
     </div>
   );
 }
-
-export default App;
