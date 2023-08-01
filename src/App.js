@@ -11,6 +11,8 @@ function App() {
   const [contract, setContract] = useState(null);
   const [recipients, setRecipients] = useState([]);
   const [message, setMessage] = useState(''); // New state for message
+  const [mobileNumber, setMobileNumber] = useState('');  // New state for mobile number
+
 
   useEffect(() => {
     initializeWeb3();
