@@ -47,7 +47,6 @@ function App() {
         value: web3.utils.toWei('0.2', 'ether'),
       });
 
-      // Add this code
       const response = await fetch('http://localhost:4000/send-sms', {
         method: 'POST',
         headers: {
@@ -55,12 +54,12 @@ function App() {
         },
         body: JSON.stringify({
           to: mobileNumber,
-          text: 'A text message sent using the Vonage SMS API'
+          text: message
         })
       });
 
       const data = await response.json();
-      console.log(data.message); // logs 'Message sent successfully'
+      console.log(data.message); 
 
       setMessage(''); // Reset message after sending
       setMobileNumber(''); // Reset mobile number after sending
@@ -75,14 +74,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div className="logo-container">
-          <img
-            src="/tdilog.png" 
-            alt="Header"
-            className="App-logo"
-          />
-        </div>
-    
+        <img src="/tdilog.png" alt="Header" className="App-logo" />
         <h1>Payment dApp</h1>
         {accounts.length === 0 ? (
           <button onClick={initializeWeb3}>Connect Wallet</button>
@@ -98,8 +90,8 @@ function App() {
                   placeholder="Enter your message here"
                 />
               </label>
-              </div>
-              <div>
+            </div>
+            <div>
               <label>
                 Enter mobile number:
                 <input
