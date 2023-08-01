@@ -1,3 +1,5 @@
+/* App.css */
+
 /* Reset styles for the whole page */
 body {
   margin: 0;
@@ -14,8 +16,6 @@ body {
   position: relative; /* Allow positioning the image inside the header */
 }
 
-
-
 /* Container for the header logo */
 .logo-container {
   max-width: 80px; /* Adjust this width as needed */
@@ -28,6 +28,19 @@ body {
   max-width: 100%;
   display: block;
   width: auto; /* Ensure the image takes up the full width of the container */
+}
+
+/* Container for the Ethereum logo */
+.eth-logo-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* Ethereum logo styles */
+.eth-logo {
+  height: 30px;
+  cursor: pointer;
 }
 
 /* Button styles */
@@ -64,7 +77,6 @@ button:hover {
   margin-bottom: 10px;
 }
 
-
 /* Add some space between the input field and the button */
 .input-container {
   margin-bottom: 20px;
@@ -74,5 +86,3 @@ button:hover {
 .button-container {
   margin-top: 10px;
 }
-
-
