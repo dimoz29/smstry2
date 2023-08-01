@@ -10,6 +10,7 @@ function App() {
   const [accounts, setAccounts] = useState([]);
   const [contract, setContract] = useState(null);
   const [recipients, setRecipients] = useState([]);
+  const [message, setMessage] = useState('');
 
   useEffect(() => {
     initializeWeb3();
@@ -61,6 +62,10 @@ function App() {
           <button onClick={initializeWeb3}>Connect Wallet</button>
         ) : (
           <>
+            <label>
+              Enter message:
+              <input type="text" value={message} onChange={e => setMessage(e.target.value)} />
+            </label>
             <button onClick={sendPayment}>Send Payment</button>
             {recipients.length > 0 && (
               <div className="recipient-list">
