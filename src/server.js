@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 
 app.post('/send-sms', (req, res) => {
   const { to, text } = req.body;
-  vonage.message.sendSms("Vonage APIs", to, text, (err, responseData) => {
+  vonage.message.sendSms(to, "Vonage APIs", text, (err, responseData) => {
     if (err) {
       console.log(err);
       res.status(500).send({ message: 'There was an error sending the messages.' });
