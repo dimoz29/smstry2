@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const Vonage = require('@vonage/server-sdk');
+const vonage = require('@vonage/server-sdk');
 
 const vonage = new Vonage({
   apiKey: "473d3aba",
@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 
 app.post('/send-sms', (req, res) => {
   const { to, text } = req.body;
-  vonage.message.sendSms(to, "Vonage APIs", text, (err, responseData) => {
+  vonage.sms.send(to, "WEB3SMS", text, (err, responseData) => {
     if (err) {
       console.log(err);
       res.status(500).send({ message: 'There was an error sending the messages.' });
