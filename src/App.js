@@ -69,6 +69,7 @@ function App() {
             className="App-logo"
           />
         </div>
+              <h1 className="blockchain-header">BlockChain Guild WEB3SMS</h1>
         <div className="eth-logo-container">
           <a href="https://sepolia.etherscan.io/address/0xb5364e95bac807f262744dedd87bbf5b70504855" target="_blank" rel="noopener noreferrer">
             <img
@@ -78,7 +79,7 @@ function App() {
             />
           </a>
         </div>
-                <h1>BlockChain Guild WEB3SMS </h1>
+    
       </header>
 
       <div className="main-content">
