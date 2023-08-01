@@ -55,17 +55,27 @@ function App() {
     }
   };
 
-  return (
+return (
     <div className="App">
       <header className="App-header">
-      <img src="public/logo.f7879e226ed5822062e2.png" alt="Header" className="App-logo" />
+        <img src="public/logo.f7879e226ed5822062e2.png" alt="Header" className="App-logo" />
         <h1>Payment dApp</h1>
         {accounts.length === 0 ? (
           <button onClick={initializeWeb3}>Connect Wallet</button>
         ) : (
           <>
-            <input type="text" value={message} onChange={e => setMessage(e.target.value)} placeholder="Enter your message here" />
-            <button onClick={sendPayment}>Send Payment</button>
+            <label>
+              Enter message:
+              <input
+                type="text"
+                value={message}
+                onChange={e => setMessage(e.target.value)}
+                placeholder="Enter your message here"
+              />
+            </label>
+            <div>
+              <button onClick={sendPayment}>Send Payment</button>
+            </div>
             {recipients.length > 0 && (
               <div className="recipient-list">
                 <h2>Recipients:</h2>
