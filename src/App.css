@@ -27,7 +27,7 @@ body {
   height: auto;
   max-width: 100%;
   display: block;
-  width: 100%; /* Ensure the image takes up the full width of the container */
+  width: auto; /* Ensure the image takes up the full width of the container */
 }
 
 /* Button styles */
