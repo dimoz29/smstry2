@@ -64,19 +64,18 @@ return (
           <button onClick={initializeWeb3}>Connect Wallet</button>
         ) : (
           <>
-            <label>
-              Enter message:
-              <input
-                type="text"
-                value={message}
-                onChange={e => setMessage(e.target.value)}
-                placeholder="Enter your message here"
-              />
-            </label>
-                <div>
-              
-            </div>  
-            <div>
+            <div className="input-container">
+              <label>
+                Enter message:
+                <input
+                  type="text"
+                  value={message}
+                  onChange={e => setMessage(e.target.value)}
+                  placeholder="Enter your message here"
+                />
+              </label>
+            </div>
+            <div className="button-container">
               <button onClick={sendPayment}>Send Payment</button>
             </div>
             {recipients.length > 0 && (
