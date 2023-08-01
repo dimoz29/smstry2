@@ -91,6 +91,8 @@ function App() {
                   placeholder="Enter your message here"
                 />
               </label>
+              </div>
+              <div>
               <label>
                 Enter mobile number:
                 <input
