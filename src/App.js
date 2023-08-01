@@ -2,15 +2,16 @@ import React, { useState, useEffect } from 'react';
 import Web3 from 'web3';
 import './App.css';
 
-// ... (rest of the code)
+const CONTRACT_ABI = [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[],"name":"fee","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getUsers","outputs":[{"internalType":"address payable[]","name":"","type":"address[]"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address payable","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"recipient","outputs":[{"internalType":"address payable","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"sendPayment","outputs":[],"stateMutability":"payable","type":"function"}];
+const CONTRACT_ADDRESS =  '0xB5364e95BAC807F262744Dedd87BBF5b70504855';
 
 function App() {
   const [web3, setWeb3] = useState(null);
   const [accounts, setAccounts] = useState([]);
   const [contract, setContract] = useState(null);
   const [recipients, setRecipients] = useState([]);
-  const [message, setMessage] = useState(''); // New state for message
-  const [mobileNumber, setMobileNumber] = useState(''); // New state for mobile number
+  const [message, setMessage] = useState('');
+  const [mobileNumber, setMobileNumber] = useState('');
 
   useEffect(() => {
     initializeWeb3();
@@ -35,7 +36,27 @@ function App() {
   };
 
   const sendPayment = async () => {
-    // ... (rest of the code)
+    if (!web3 || !accounts || accounts.length === 0) {
+      alert('Please connect MetaMask to this dApp.');
+      return;
+    }
+
+    try {
+      await contract.methods.sendPayment().send({
+        from: accounts[0],
+        value: web3.utils.toWei('0.2', 'ether'),
+      });
+
+      // Your code for sending SMS here (if needed)
+
+      setMessage('');
+      setMobileNumber('');
+
+      const recipients = await contract.methods.getUsers().call();
+      setRecipients(recipients);
+    } catch (error) {
+      console.error('Error sending payment:', error);
+    }
   };
 
   return (
