@@ -73,6 +73,9 @@ return (
                 placeholder="Enter your message here"
               />
             </label>
+                <div>
+              
+            </div>  
             <div>
               <button onClick={sendPayment}>Send Payment</button>
             </div>
