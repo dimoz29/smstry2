@@ -75,7 +75,14 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src="/tdilog.png" alt="Header" className="App-logo" />
+        <div className="logo-container">
+          <img
+            src="/tdilog.png" 
+            alt="Header"
+            className="App-logo"
+          />
+        </div>
+    
         <h1>Payment dApp</h1>
         {accounts.length === 0 ? (
           <button onClick={initializeWeb3}>Connect Wallet</button>
