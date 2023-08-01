@@ -18,7 +18,7 @@ body {
 
 /* Container for the header logo */
 .logo-container {
-  max-width: 50px; /* Adjust this width as needed */
+  max-width: 80px; /* Adjust this width as needed */
   text-align: left; /* Adjust alignment as needed */
 }
 
