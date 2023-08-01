@@ -78,10 +78,11 @@ function App() {
             />
           </a>
         </div>
+                <h1>BlockChain Guild WEB3SMS </h1>
       </header>
 
       <div className="main-content">
-        <h1>BlockChain Guild WEB3SMS </h1>
+        
         {accounts.length === 0 ? (
           <button onClick={initializeWeb3}>Connect Wallet</button>
         ) : (
