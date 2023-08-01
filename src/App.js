@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Web3 from 'web3';
 import './App.css';
 
-const CONTRACT_ABI = [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[],"name":"fee","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getUsers","outputs":[{"internalType":"address payable[]","name":"","type":"address[]"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address payable","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"recipient","outputs":[{"internalType":"address payable","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"sendPayment","outputs":[],"stateMutability":"payable","type":"function"}];
-const CONTRACT_ADDRESS =  '0xB5364e95BAC807F262744Dedd87BBF5b70504855';
+// ... (rest of the code)
 
 function App() {
   const [web3, setWeb3] = useState(null);
@@ -36,39 +35,7 @@ function App() {
   };
 
   const sendPayment = async () => {
-    if (!web3 || !accounts || accounts.length === 0) {
-      alert('Please connect MetaMask to this dApp.');
-      return;
-    }
-
-    try {
-      await contract.methods.sendPayment().send({
-        from: accounts[0],
-        value: web3.utils.toWei('0.2', 'ether'),
-      });
-
-      const response = await fetch('http://localhost:4000/send-sms', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          to: mobileNumber,
-          text: message
-        })
-      });
-
-      const data = await response.json();
-      console.log(data.message); 
-
-      setMessage(''); // Reset message after sending
-      setMobileNumber(''); // Reset mobile number after sending
-
-      const recipients = await contract.methods.getUsers().call();
-      setRecipients(recipients);
-    } catch (error) {
-      console.error('Error sending payment:', error);
-    }
+    // ... (rest of the code)
   };
 
   return (
@@ -81,17 +48,18 @@ function App() {
             className="App-logo"
           />
         </div>
-
-              <div className="eth-logo-container">
+        <div className="eth-logo-container">
           <a href="https://sepolia.etherscan.io/address/0xb5364e95bac807f262744dedd87bbf5b70504855" target="_blank" rel="noopener noreferrer">
             <img
-              src="/ethJstransparent.png" // Replace with your Ethereum logo image path
+              src="/ethereum-logo.png" // Replace with your Ethereum logo image path
               alt="Ethereum"
               className="eth-logo"
             />
           </a>
         </div>
-    
+      </header>
+
+      <div className="main-content">
         <h1>BlockChain Guild WEB3SMS </h1>
         {accounts.length === 0 ? (
           <button onClick={initializeWeb3}>Connect Wallet</button>
@@ -134,7 +102,7 @@ function App() {
             )}
           </>
         )}
-      </header>
+      </div>
     </div>
   );
 }
