@@ -4,48 +4,49 @@
 body {
   margin: 0;
   padding: 0;
-  /*background-color: #36454F; /* Charcoal gray background */
   background-image: radial-gradient(circle, #E10075, #36454F);
 }
 
 /* Header styles */
 .App-header {
-  background-color: #36454F; /* Magenta header background */
-  padding: 20px;
+  background-color: #36454F;
+  padding: 1rem;
   text-align: center;
-  position: relative; /* Allow positioning the image inside the header */
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* Container for the header logo */
 .logo-container {
-  max-width: 80px; /* Adjust this width as needed */
-  text-align: left; /* Adjust alignment as needed */
+  max-width: 40%;
 }
 
 /* Header image styles */
 .App-logo {
   height: auto;
-  max-width: 100%;
+  max-width: 40%;
   display: block;
-  width: auto; /* Ensure the image takes up the full width of the container */
 }
 
 /* Container for the Ethereum logo */
 .eth-logo-container {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 1rem;
+  right: 1rem;
 }
 
 /* Ethereum logo styles */
 .eth-logo {
-  height: 30px;
+  height: auto;
+  max-width: 40%;
   cursor: pointer;
 }
 
 /* Button styles */
 button {
-  background-color: #d3d3d3; /* Light gray button background */
+  background-color: #d3d3d3;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -55,19 +56,19 @@ button {
 }
 
 button:hover {
-  background-color: #E10075; /* Blue button background on hover */
+  background-color: #E10075;
 }
 
 /* Recipient list styles */
 .recipient-list {
-  margin-top: 30px;
+  margin-top: 2rem;
 }
 
 .recipient-card {
-  background-color: #36454F; /* Charcoal gray background */
+  background-color: #36454F;
   border-radius: 8px;
-  padding: 10px;
-  margin: 10px 0;
+  padding: 1rem;
+  margin: 1rem 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -79,10 +80,23 @@ button:hover {
 
 /* Add some space between the input field and the button */
 .input-container {
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
 }
 
 /* Add some space above the button */
 .button-container {
-  margin-top: 10px;
+  margin-top: 1rem;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 600px) {
+  .logo-container {
+    max-width: 40%;
+  }
+
+  .eth-logo-container {
+    top: 1rem;
+    right: 1rem;
+    transform: none;
+  }
 }
