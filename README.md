@@ -1,14 +1,8 @@
-# Cadena Certification Submission Repository
+# TDI Guild WEB3SMS     
 
 ## Overview
 
-Welcome to our GitLab repository! 
-This repository serves as our submission for the Cadena Certification. Our team consists of three members who have worked collaboratively to prepare the necessary materials and documentation for the certification process. 
-
-## Purpose
-
-The primary purpose of this repository is to submit our project for the Cadena Certification.
-
+send sms by utilizing smartcontract in Sepolia network
 
 ## Team Members
 
