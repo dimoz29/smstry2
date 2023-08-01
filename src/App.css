@@ -17,7 +17,7 @@ body {
 /* Header image styles */
 .App-logo {
   height: auto;
-  max-width: 100%;
+  max-width: auto;
   pointer-events: none;
   position: absolute;
   top: 10px;
