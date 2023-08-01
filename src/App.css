@@ -56,3 +56,14 @@ button:hover {
   font-size: 24px;
   margin-bottom: 10px;
 }
+
+
+/* Add some space between the input field and the button */
+.input-container {
+  margin-bottom: 20px;
+}
+
+/* Add some space above the button */
+.button-container {
+  margin-top: 10px;
+}
