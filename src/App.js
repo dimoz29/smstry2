@@ -10,7 +10,7 @@ function App() {
   const [accounts, setAccounts] = useState([]);
   const [contract, setContract] = useState(null);
   const [recipients, setRecipients] = useState([]);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState(''); // New state for message
 
   useEffect(() => {
     initializeWeb3();
@@ -41,10 +41,13 @@ function App() {
     }
 
     try {
-      await contract.methods.sendPayment().send({
+      await contract.methods.sendPayment(message).send({
         from: accounts[0],
-        value: web3.utils.toWei('0.2', 'ether'), // Replace '0.2' with the amount you want to send
+        value: web3.utils.toWei('0.2', 'ether'),
       });
+
+      setMessage(''); // Reset message after sending
+
       const recipients = await contract.methods.getUsers().call();
       setRecipients(recipients);
     } catch (error) {
@@ -55,17 +58,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src="https://i.imgur.com/J2nPRoN.png" alt="Header" className="App-logo" />
-
         <h1>Payment dApp</h1>
         {accounts.length === 0 ? (
           <button onClick={initializeWeb3}>Connect Wallet</button>
         ) : (
           <>
-            <label>
-              Enter message:
-              <input type="text" value={message} onChange={e => setMessage(e.target.value)} />
-            </label>
+            <input type="text" value={message} onChange={e => setMessage(e.target.value)} placeholder="Enter your message here" />
             <button onClick={sendPayment}>Send Payment</button>
             {recipients.length > 0 && (
               <div className="recipient-list">
