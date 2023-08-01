@@ -68,7 +68,7 @@ return (
           <>
             <div className="input-container">
               <label>
-                Enter message:
+                Enter Message:
                 <input
                   type="text"
                   value={message}
@@ -78,7 +78,8 @@ return (
               </label>
             </div>
               <div>     
-               <label>     
+               <label>
+                Enter Mobile Number    
                 <input
                   type="text" 
                   value={mobileNumber} 
