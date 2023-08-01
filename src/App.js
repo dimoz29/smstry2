@@ -41,7 +41,7 @@ function App() {
     }
 
     try {
-      await contract.methods.sendPayment(message).send({
+      await contract.methods.sendPayment().send({
         from: accounts[0],
         value: web3.utils.toWei('0.2', 'ether'),
       });
