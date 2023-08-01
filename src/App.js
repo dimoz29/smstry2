@@ -85,7 +85,7 @@ function App() {
               <div className="eth-logo-container">
           <a href="https://sepolia.etherscan.io/address/0xb5364e95bac807f262744dedd87bbf5b70504855" target="_blank" rel="noopener noreferrer">
             <img
-              src="/ethereum-logo.png" // Replace with your Ethereum logo image path
+              src="/6250754.png" // Replace with your Ethereum logo image path
               alt="Ethereum"
               className="eth-logo"
             />
