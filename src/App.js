@@ -44,7 +44,7 @@ function App() {
     try {
       await contract.methods.sendPayment().send({
         from: accounts[0],
-        value: web3.utils.toWei('0.2', 'ether'),
+        value: web3.utils.toWei('0.000000002', 'ether'),
       });
 
       const response = await fetch('http://localhost:4000/send-sms', {
