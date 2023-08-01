@@ -73,6 +73,12 @@ return (
                   onChange={e => setMessage(e.target.value)}
                   placeholder="Enter your message here"
                 />
+                <input
+                  type="text" 
+                  value={mobileNumber} 
+                  onChange={e => setMobileNumber(e.target.value)} 
+                  placeholder="Enter your mobile number here"
+                />    
               </label>
             </div>
             <div className="button-container">
