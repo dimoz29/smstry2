@@ -104,8 +104,7 @@ button:hover {
 /* Add styles for the mobile number input specifically */
 .inputnumber-container input {
   width: 100%; /* Make the input field take the full width available */
-  height: 100px; /* Increase the height to make the input area bigger */
-  font-size: 18px; /* Increase the font size for better readability */
+  height: 50px; /* Increase the height to make the input area bigger */
 }
 
 /* Add some space above the button */
