@@ -100,6 +100,14 @@ button:hover {
   align-items: center; /* Center the input elements vertically */
 }
 
+
+/* Add styles for the mobile number input specifically */
+.inputnumber-container input {
+  width: 100%; /* Make the input field take the full width available */
+  height: 100px; /* Increase the height to make the input area bigger */
+  font-size: 18px; /* Increase the font size for better readability */
+}
+
 /* Add some space above the button */
 .button-container {
   margin-top: 1rem;
