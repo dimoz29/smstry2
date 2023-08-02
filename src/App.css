@@ -5,6 +5,10 @@ body {
   margin: 0;
   padding: 0;
   background-image: radial-gradient(circle, #E10075, #36454F);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
 }
 
 /* Header styles */
