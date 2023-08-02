@@ -48,7 +48,7 @@ body {
 .blockchain-header {
   text-align: center;
   flex-grow: 1; /* Takes up remaining space */
-  margin: 0 1rem; /* Add some space on the sides */
+  margin: 0; /* Add some space on the sides */
 }
 
 /* Button styles */
