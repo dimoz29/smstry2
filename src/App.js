@@ -113,7 +113,6 @@ function App() {
               </label>
             </div>			
 			
-			</div>
             <div className="button-container">
               <button onClick={sendPayment}>Send Payment</button>
             </div>
