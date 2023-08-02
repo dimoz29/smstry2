@@ -94,6 +94,7 @@ button:hover {
 /* Add some space between the input field and the button */
 .input-container, .inputnumber-container {
   margin-bottom: 2rem;
+  margin-top: 1rem;
   display: flex;
   justify-content: center; /* Center the input elements horizontally */
   align-items: center; /* Center the input elements vertically */
