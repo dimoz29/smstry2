@@ -70,6 +70,9 @@ button:hover {
 /* Recipient list styles */
 .recipient-list {
   margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the recipients horizontally */
 }
 
 .recipient-card {
@@ -78,6 +81,8 @@ button:hover {
   padding: 1rem;
   margin: 1rem 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Set the width of recipient cards to 100% */
+  max-width: 400px; /* Limit the max-width of recipient cards */
 }
 
 /* Recipients heading styles */
