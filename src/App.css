@@ -47,6 +47,7 @@ body {
 /* Blockchain header styles */
 .blockchain-header {
   text-align: center;
+  width: 100%; /* Take up the entire available space */
   flex-grow: 1; /* Takes up remaining space */
   margin: 0; /* Add some space on the sides */
 }
