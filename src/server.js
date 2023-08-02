@@ -11,12 +11,13 @@ app.post('/send-sms', async (req, res) => {
   const { to, text } = req.body;
 
   const data = {
-    api_key: 'YOUR_API_KEY',
-    api_secret: 'YOUR_API_SECRET',
+    api_key: '473d3aba',
+    api_secret: 'YZIu8VnYsav99tSew',
     to: to,
     from: 'WEB3SMS',
     text: text,
   };
+
 
   try {
     const response = await axios.post('https://rest.nexmo.com/sms/json', data);
