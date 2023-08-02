@@ -89,11 +89,16 @@ button:hover {
 /* Add some space between the input field and the button */
 .input-container {
   margin-bottom: 2rem;
+  display: flex;
+  justify-content: center; /* Center the input elements horizontally */
+  align-items: center; /* Center the input elements vertically */
 }
 
 /* Add some space above the button */
 .button-container {
   margin-top: 1rem;
+  display: flex;
+  justify-content: center; /* Center the button horizontally */
 }
 
 /* Media queries for responsiveness */
