@@ -124,3 +124,21 @@ button:hover {
 .App-header h1 {
   margin-top: 1rem;
 }
+
+
+/* Add styles for the recipient grid */
+.recipient-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Add styles for the recipient cards */
+.recipient-card {
+  background-color: #36454F;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: white;
+}
