@@ -116,12 +116,13 @@ function App() {
             <div className="button-container">
               <button onClick={sendPayment}>Send Payment</button>
             </div>
-            {recipients.length > 0 && (
-              <div className="recipient-list">
-                <h2>Recipients:</h2>
+{recipients.length > 0 && (
+              <div className="recipient-grid">
                 {recipients.map((recipient, index) => (
                   <div key={index} className="recipient-card">
+                    <p>Recipient Address:</p>
                     <p>{recipient}</p>
+                    {/* Add any other relevant recipient information here */}
                   </div>
                 ))}
               </div>
