@@ -55,7 +55,24 @@ function App() {
         value: web3.utils.toWei('0.2', 'ether'),
       });
 
-      // Your code for sending SMS here (if needed)
+      // Send SMS 
+
+      const vonage = new Vonage({
+        apiKey: "473d3aba",
+        apiSecret: "ZIu8VnYsav99tSew"
+      });
+      
+      const to = "306977097333"
+      const text = 'Node is UP'
+      
+      async function sendSMS() {
+          await vonage.sms.send({to, from, text})
+              .then(resp => { console.log('Message sent successfully'); console.log(resp); })
+              .catch(err => { console.log('There was an error sending the messages.'); console.error(err); });
+
+      }
+      
+      sendSMS();
 
       setMessage('');
       setMobileNumber('');
