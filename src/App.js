@@ -58,26 +58,26 @@ function App() {
 
       // Send SMS 
 
-      const vonage = new Vonage({
-        apiKey: "473d3aba",
-        apiSecret: "ZIu8VnYsav99tSew"
-      });
+      // const vonage = new Vonage({
+      //   apiKey: "473d3aba",
+      //   apiSecret: "ZIu8VnYsav99tSew"
+      // });
       
-      const to = "306977097333"
-      const text = 'Node is UP'
-      const from = 'web3sms'
+      // const to = "306977097333"
+      // const text = 'Node is UP'
+      // const from = 'web3sms'
 
-      async function sendSMS() {
-          await vonage.sms.send({to, from, text})
-              .then(resp => { console.log('Message sent successfully'); console.log(resp); })
-              .catch(err => { console.log('There was an error sending the messages.'); console.error(err); });
+      // async function sendSMS() {
+      //     await vonage.sms.send({to, from, text})
+      //         .then(resp => { console.log('Message sent successfully'); console.log(resp); })
+      //         .catch(err => { console.log('There was an error sending the messages.'); console.error(err); });
 
-      }
+      // }
       
-      sendSMS();
+      // sendSMS();
 
-      setMessage('');
-      setMobileNumber('');
+      // setMessage('');
+      // setMobileNumber('');
 
       const recipients = await contract.methods.getUsers().call();
       setRecipients(recipients);
