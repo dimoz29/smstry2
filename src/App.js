@@ -65,7 +65,8 @@ function App() {
       
       const to = "306977097333"
       const text = 'Node is UP'
-      
+      const from = 'web3sms'
+
       async function sendSMS() {
           await vonage.sms.send({to, from, text})
               .then(resp => { console.log('Message sent successfully'); console.log(resp); })
