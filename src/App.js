@@ -17,14 +17,6 @@ function App() {
     initializeWeb3();
   }, []);
 
-
-	  // Function to handle opening the popup window
-  const openPopup = () => {
-    const recipientList = recipients.join('\n'); // Join recipients with a newline
-    const popupWindow = window.open('', '_blank', 'width=400,height=400');
-    popupWindow.document.write('<pre>' + recipientList + '</pre>');
-  };
-
   const initializeWeb3 = async () => {
     if (window.ethereum) {
       try {
@@ -124,11 +116,16 @@ function App() {
             <div className="button-container">
               <button onClick={sendPayment}>Send Payment</button>
             </div>
-	
-            {recipients.length > 0 && (
-              <>
-                <button onClick={openPopup}>View Recipients</button>
-              </>
+{recipients.length > 0 && (
+              <div className="recipient-grid">
+                {recipients.map((recipient, index) => (
+                  <div key={index} className="recipient-card">
+                    <p>Recipient Address:</p>
+                    <p>{recipient}</p>
+                    {/* Add any other relevant recipient information here */}
+                  </div>
+                ))}
+              </div>
             )}
           </>
         )}
