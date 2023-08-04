@@ -31,4 +31,4 @@ const sendPayment = async () => {
       console.error('Error sending payment:', error);
     }
   };
-  
+  export default App;
