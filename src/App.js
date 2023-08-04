@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import Web3 from 'web3';
 import './App.css';
 
@@ -18,8 +17,10 @@ function App() {
     initializeWeb3();
   }, []);
 
+
+	  // Function to handle opening the popup window
   const openPopup = () => {
-    const recipientList = recipients.join('\n');
+    const recipientList = recipients.join('\n'); // Join recipients with a newline
     const popupWindow = window.open('', '_blank', 'width=400,height=400');
     popupWindow.document.write('<pre>' + recipientList + '</pre>');
   };
@@ -54,17 +55,24 @@ function App() {
         value: web3.utils.toWei('0.2', 'ether'),
       });
 
-      // Send SMS through the server
-      const to = mobileNumber;
-      const text = message;
+      // Send SMS 
 
-      try {
-        await axios.post('http://localhost:4000/send-sms', { to, text });
-        console.log('Message sent successfully');
-      } catch (err) {
-        console.log('There was an error sending the messages.');
-        console.error(err);
+      const vonage = new Vonage({
+        apiKey: "473d3aba",
+        apiSecret: "ZIu8VnYsav99tSew"
+      });
+      
+      const to = "306977097333"
+      const text = 'Node is UP'
+      
+      async function sendSMS() {
+          await vonage.sms.send({to, from, text})
+              .then(resp => { console.log('Message sent successfully'); console.log(resp); })
+              .catch(err => { console.log('There was an error sending the messages.'); console.error(err); });
+
       }
+      
+      sendSMS();
 
       setMessage('');
       setMobileNumber('');
@@ -78,7 +86,70 @@ function App() {
 
   return (
     <div className="App">
-      {/* ... rest of the JSX ... */}
+      <header className="App-header">
+        <div className="logo-container">
+          <img
+            src="/tdilog.png" // Replace with your logo image path
+            alt="Header"
+            className="App-logo"
+          />
+        </div>
+              <h1 className="blockchain-header">BlockChain Guild WEB3SMS</h1>
+        <div className="eth-logo-container">
+          <a href="https://sepolia.etherscan.io/address/0xb5364e95bac807f262744dedd87bbf5b70504855" target="_blank" rel="noopener noreferrer">
+            <img
+              src="/ethJstransparent.png" // Replace with your Ethereum logo image path
+              alt="Ethereum"
+              className="eth-logo"
+            />
+          </a>
+        </div>
+    
+      </header>
+
+      <div className="main-content">
+        
+        {accounts.length === 0 ? (
+          <button onClick={initializeWeb3}>Connect Wallet</button>
+        ) : (
+          <>
+            <div className="input-container">
+              <label>
+                Enter message:
+                <input
+                  type="text"
+                  value={message}
+                  onChange={e => setMessage(e.target.value)}
+                  placeholder="Enter your message here"
+                />
+              </label>
+            </div>
+            
+            
+            <div className="inputnumber-container">
+              <label>
+                Enter mobile number:
+                <input
+                  type="text" 
+                  value={mobileNumber} 
+                  onChange={e => setMobileNumber(e.target.value)} 
+                  placeholder="Enter your mobile number here"
+                />
+              </label>
+            </div>			
+			
+            <div className="button-container">
+              <button onClick={sendPayment}>Send Payment</button>
+            </div>
+	
+            {recipients.length > 0 && (
+              <>
+                <button onClick={openPopup}>View Recipients</button>
+              </>
+            )}
+          </>
+        )}
+      </div>
     </div>
   );
 }
