@@ -11,7 +11,7 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4",
     "web3": "^1.9.0",
-    "@vonage/server-sdk": latest"
+    "@vonage/server-sdk"
   },
   "scripts": {
     "start": "react-scripts start",
