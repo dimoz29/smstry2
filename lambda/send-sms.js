@@ -2,7 +2,7 @@ const { Vonage } = require('@vonage/server-sdk');
 
 const vonage = new Vonage({
   applicationId: process.env.VONAGE_APPLICATION_ID, // replace with your actual Application ID
-  privateKey: process.env.VONAGE_APPLICATION_PRIVATE_KEY_PATH, // replace with the path to your private key
+  privateKey: './private.key', // replace with the path to your private key
   apiKey: process.env.VONAGE_API_KEY,
   apiSecret: process.env.VONAGE_API_SECRET,
 });
