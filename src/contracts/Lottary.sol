@@ -19,3 +19,4 @@ contract PaymentContract {
         return recipient; // get the array of addresses of the players in the lottery
     }
 }
+

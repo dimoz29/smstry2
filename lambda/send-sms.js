@@ -1,9 +1,11 @@
-const Vonage = require('@vonage/server-sdk');
+const { Vonage } = require('@vonage/server-sdk');
 
 const vonage = new Vonage({
   apiKey: process.env.VONAGE_API_KEY,
   apiSecret: process.env.VONAGE_API_SECRET,
+  applicationId: process.env.VONAGE_APPLICATION_ID
 });
+
 
 exports.handler = async function(event, context) {
   if (event.httpMethod !== 'POST') {
@@ -22,4 +24,9 @@ exports.handler = async function(event, context) {
     });
   });
 };
+
+
+console.log('Vonage instance:', vonage);
+console.log('sendSms method:', vonage.message.sendSms);
+
 

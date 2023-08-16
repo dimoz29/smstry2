@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Web3 from 'web3';
 import './App.css';
 
-
 const CONTRACT_ABI = [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[],"name":"fee","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getUsers","outputs":[{"internalType":"address payable[]","name":"","type":"address[]"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address payable","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"recipient","outputs":[{"internalType":"address payable","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"sendPayment","outputs":[],"stateMutability":"payable","type":"function"}];
-const CONTRACT_ADDRESS =  '0xB5364e95BAC807F262744Dedd87BBF5b70504855';
+const CONTRACT_ADDRESS = '0xB5364e95BAC807F262744Dedd87BBF5b70504855';
 
 function App() {
   const [web3, setWeb3] = useState(null);
@@ -18,10 +17,8 @@ function App() {
     initializeWeb3();
   }, []);
 
-
-	  // Function to handle opening the popup window
   const openPopup = () => {
-    const recipientList = recipients.join('\n'); // Join recipients with a newline
+    const recipientList = recipients.join('\n'); 
     const popupWindow = window.open('', '_blank', 'width=400,height=400');
     popupWindow.document.write('<pre>' + recipientList + '</pre>');
   };
@@ -44,6 +41,24 @@ function App() {
     }
   };
 
+   // Function to handle SMS using netlify functions
+
+  const sendSMS = async (number, message) => {
+    const response = await fetch('/.netlify/functions/send-sms', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        to: number,
+        text: message
+      })
+    });
+
+    const data = await response.json();
+    console.log(data);
+  }
+
   const sendPayment = async () => {
     if (!web3 || !accounts || accounts.length === 0) {
       alert('Please connect MetaMask to this dApp.');
@@ -56,7 +71,8 @@ function App() {
         value: web3.utils.toWei('0.2', 'ether'),
       });
 
-      // Your code for sending SMS here (if needed)
+      // Send SMS
+      await sendSMS(mobileNumber, message);
 
       setMessage('');
       setMobileNumber('');
@@ -68,7 +84,7 @@ function App() {
     }
   };
 
-  return (
+return (
     <div className="App">
       <header className="App-header">
         <div className="logo-container">
@@ -120,12 +136,12 @@ function App() {
                   placeholder="Enter your mobile number here"
                 />
               </label>
-            </div>			
-			
+            </div>      
+      
             <div className="button-container">
               <button onClick={sendPayment}>Send Payment</button>
             </div>
-	
+  
             {recipients.length > 0 && (
               <>
                 <button onClick={openPopup}>View Recipients</button>
