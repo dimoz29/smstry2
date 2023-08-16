@@ -10,16 +10,14 @@ contract PaymentContract {
     }
 
     function sendPayment() public payable {
-        require(msg.value > fee, "Insufficient amount sent");
-        
-        // Instead of transferring to the owner, it's returned back to the sender.
-        payable(msg.sender).transfer(msg.value);
-        
+        require(msg.value > fee, "Sent value should be greater than fee");
+        owner.transfer(fee);  // Transfer the fee to the owner
+        payable(msg.sender).transfer(msg.value - fee);  // Return the remaining amount to the sender
         recipient.push(payable(msg.sender));
     }
 
     function getUsers() public view returns (address payable[] memory) {
-        return recipient; // get the array of addresses of the players in the lottery
+        return recipient;
     }
 }
 
