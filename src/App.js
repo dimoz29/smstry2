@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Web3 from 'web3';
 import './App.css';
-import { Vonage } from '@vonage/server-sdk';
+
 
 const CONTRACT_ABI = [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[],"name":"fee","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getUsers","outputs":[{"internalType":"address payable[]","name":"","type":"address[]"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address payable","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"recipient","outputs":[{"internalType":"address payable","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"sendPayment","outputs":[],"stateMutability":"payable","type":"function"}];
 const CONTRACT_ADDRESS =  '0xB5364e95BAC807F262744Dedd87BBF5b70504855';
@@ -56,28 +56,10 @@ function App() {
         value: web3.utils.toWei('0.2', 'ether'),
       });
 
-      // Send SMS 
+      // Your code for sending SMS here (if needed)
 
-      // const vonage = new Vonage({
-      //   apiKey: "473d3aba",
-      //   apiSecret: "ZIu8VnYsav99tSew"
-      // });
-      
-      // const to = "306977097333"
-      // const text = 'Node is UP'
-      // const from = 'web3sms'
-
-      // async function sendSMS() {
-      //     await vonage.sms.send({to, from, text})
-      //         .then(resp => { console.log('Message sent successfully'); console.log(resp); })
-      //         .catch(err => { console.log('There was an error sending the messages.'); console.error(err); });
-
-      // }
-      
-      // sendSMS();
-
-      // setMessage('');
-      // setMobileNumber('');
+      setMessage('');
+      setMobileNumber('');
 
       const recipients = await contract.methods.getUsers().call();
       setRecipients(recipients);
