@@ -68,7 +68,7 @@ function App() {
     try {
       await contract.methods.sendPayment().send({
         from: accounts[0],
-        value: web3.utils.toWei('0.007', 'ether'),
+        value: web3.utils.toWei('0.07', 'ether'),
       });
 
       // Send SMS
