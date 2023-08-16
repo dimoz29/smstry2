@@ -1,4 +1,3 @@
 [build]
   functions = "lambda"
-  node_version = "16"
 
