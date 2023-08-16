@@ -1,9 +1,10 @@
-const { Vonage } = require('@vonage/server-sdk');
+const Vonage = require('@vonage/server-sdk');
 
-const vonage = new Vonage({
+const vonage = new Vonage.Message({
   apiKey: process.env.VONAGE_API_KEY,
   apiSecret: process.env.VONAGE_API_SECRET,
 });
+
 
 exports.handler = async function(event, context) {
   if (event.httpMethod !== 'POST') {
