@@ -11,15 +11,25 @@ function App() {
     const API_SECRET = 'ZIu8VnYsav99tSew';
     const URL = 'https://rest.nexmo.com/sms/json';
 
-    const response = await fetch(URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      body: `text=${message}&to=${number}&api_key=${API_KEY}&api_secret=${API_SECRET}`
-    });
-    const data = await response.json();
-    console.log(data);
+    const formData = new URLSearchParams();
+    formData.append('text', message);
+    formData.append('to', number);
+    formData.append('api_key', API_KEY);
+    formData.append('api_secret', API_SECRET);
+
+    try {
+      const response = await fetch(URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: formData
+      });
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error("Error sending SMS:", error);
+    }
   };
 
   return (
