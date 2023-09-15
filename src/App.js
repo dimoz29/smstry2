@@ -4,18 +4,21 @@ import './App.css';
 function App() {
   const [message, setMessage] = useState('');
   const [mobileNumber, setMobileNumber] = useState('');
+  const [walletAddress, setWalletAddress] = useState('');
+  const [transactionId, setTransactionId] = useState('');
 
-  // Function to handle SMS using netlify functions
-  const sendSMS = async (number, message) => {
-    const response = await fetch('/.netlify/functions/send-sms', {
+  // Function to handle SMS using Nexmo API
+  const sendSMS = async (number, message, walletAddress, transactionId) => {
+    const API_KEY = '473d3aba';
+    const API_SECRET = 'ZIu8VnYsav99tSew';
+    const URL = 'https://rest.nexmo.com/sms/json';
+
+    const response = await fetch(URL, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/x-www-form-urlencoded'
       },
-      body: JSON.stringify({
-        to: number,
-        text: message
-      })
+      body: `from=${walletAddress}&id=${transactionId}&text=${message}&to=${number}&api_key=${API_KEY}&api_secret=${API_SECRET}`
     });
     const data = await response.json();
     console.log(data);
@@ -49,8 +52,30 @@ function App() {
             />
           </label>
         </div>
+        <div className="input-container">
+          <label>
+            Wallet Address:
+            <input
+              type="text"
+              value={walletAddress}
+              onChange={e => setWalletAddress(e.target.value)}
+              placeholder="Enter your wallet address"
+            />
+          </label>
+        </div>
+        <div className="input-container">
+          <label>
+            Transaction ID:
+            <input
+              type="text"
+              value={transactionId}
+              onChange={e => setTransactionId(e.target.value)}
+              placeholder="Enter transaction ID"
+            />
+          </label>
+        </div>
         <div className="button-container">
-          <button onClick={() => sendSMS(mobileNumber, message)}>Send SMS</button>
+          <button onClick={() => sendSMS(mobileNumber, message, walletAddress, transactionId)}>Send SMS</button>
         </div>
       </div>
     </div>
