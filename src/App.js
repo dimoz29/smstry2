@@ -26,7 +26,36 @@ function App() {
 
   return (
     <div className="App">
-      // ... (rest of the code remains unchanged)
+      <header className="App-header">
+        <h1>Offchain SMS</h1>
+      </header>
+      <div className="main-content">
+        <div className="input-container">
+          <label>
+            Enter message:
+            <input
+              type="text"
+              value={message}
+              onChange={e => setMessage(e.target.value)}
+              placeholder="Enter your message here"
+            />
+          </label>
+        </div>
+        <div className="inputnumber-container">
+          <label>
+            Enter receiver's mobile number:
+            <input
+              type="text"
+              value={mobileNumber}
+              onChange={e => setMobileNumber(e.target.value)}
+              placeholder="Enter receiver's mobile number"
+            />
+          </label>
+        </div>
+        <div className="button-container">
+          <button onClick={() => sendSMS(mobileNumber, message)}>Send SMS</button>
+        </div>
+      </div>
     </div>
   );
 }
