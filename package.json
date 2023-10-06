@@ -17,8 +17,11 @@
   },
 
   "resolve": {
-  "fallback": { "crypto": require.resolve("crypto-browserify") }
+  "fallback": {
+    "crypto": require.resolve("crypto-js")
+  }
 },
+
 
   "scripts": {
     "start": "react-scripts start",
