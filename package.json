@@ -15,6 +15,11 @@
     "nodemailer": "^6.6.3",
     "twilio": "^3.69.0"
   },
+
+  "resolve": {
+  "fallback": { "crypto": require.resolve("crypto-browserify") }
+},
+
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
