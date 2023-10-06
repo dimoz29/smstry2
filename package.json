@@ -16,12 +16,6 @@
     "twilio": "^3.69.0"
   },
 
-    "resolve": {
-    "fallback": {
-      "crypto": require.resolve("crypto-js")
-    }
-  },
-
 
   "scripts": {
     "start": "react-scripts start",
