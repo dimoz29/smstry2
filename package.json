@@ -16,11 +16,11 @@
     "twilio": "^3.69.0"
   },
 
-  "resolve": {
-  "fallback": {
-    "crypto": require.resolve("crypto-js")
-  }
-},
+    "resolve": {
+    "fallback": {
+      "crypto": require.resolve("crypto-js")
+    }
+  },
 
 
   "scripts": {
