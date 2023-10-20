@@ -1,28 +1,49 @@
 const express = require('express');
-const cors = require('cors');
 const bodyParser = require('body-parser');
-const vonage = require('@vonage/server-sdk');
-
-const vonage = new Vonage({
-  apiKey: "b78ec810",
-  apiSecret: "SkV66w8nnV1Wsi0v"
-});
+const { Vonage } = require('@vonage/server-sdk');
 
 const app = express();
-app.use(cors());
-app.use(bodyParser.json());
-
-app.post('/send-sms', (req, res) => {
-  const { to, text } = req.body;
-  vonage.sms.send(to, "WEB3SMS", text, (err, responseData) => {
-    if (err) {
-      console.log(err);
-      res.status(500).send({ message: 'There was an error sending the messages.' });
-    } else {
-      console.log(responseData);
-      res.status(200).send({ message: 'Message sent successfully' });
-    }
-  });
+const vonage = new Vonage({
+  apiKey: 'b78ec810',
+  apiSecret: 'SkV66w8nnV1Wsi0v',
 });
 
-app.listen(4000, () => console.log('Server is running on port 4000'));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(express.static('public'));
+
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
+});
+
+app.post('/send-sms', (req, res) => {
+  const from = 'Vonage APIs';
+  const to = req.body.recipient_number;
+  const text = req.body.message_text;
+
+  async function sendSMS() {
+    try {
+      const resp = await vonage.sms.send({ to, from, text });
+      console.log('Message sent successfully');
+      console.log(resp);
+
+      // Send a success response to the client's browser
+      res.status(200).json({ message: 'Message sent successfully' });
+    } catch (err) {
+      console.log('There was an error sending the message.');
+      console.error(err);
+
+      // Send an error response to the client's browser
+      res.status(500).json({ error: 'Message not sent' });
+    }
+  }
+
+  sendSMS();
+});
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
+
