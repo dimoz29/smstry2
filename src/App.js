@@ -44,20 +44,21 @@ function App() {
    // Function to handle SMS using netlify functions
 
   const sendSMS = async (number, message) => {
-    const response = await fetch('/.netlify/functions/send-sms', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        to: number,
-        text: message
-      })
-    });
+  const response = await fetch('http://localhost:3000/send-sms', { // Update the URL based on where your server is running
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      recipient_number: number,
+      message_text: message
+    })
+  });
 
-    const data = await response.json();
-    console.log(data);
-  }
+  const data = await response.json();
+  console.log(data);
+}
+
 
   const sendPayment = async () => {
     if (!web3 || !accounts || accounts.length === 0) {
